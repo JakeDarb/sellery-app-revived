@@ -7,6 +7,7 @@ $primary: #BAD9B5;
 $secondary: #EFF7CF;
 $danger: #732C2C;
 $success: #2C732C;
+$grey: #737973;
 .header {
 	display: flex;
 	padding: 1rem 2rem;
@@ -45,6 +46,25 @@ $success: #2C732C;
 	}
 }
 
+.scroll--container {
+	box-shadow: 0 0 5px $grey;
+	margin: 1rem 0;
+	overflow-x: scroll;
+	padding: 1.5rem 0;
+	white-space: nowrap;
+}
+
+.scroll--item {
+	border: 2px solid black;
+	border-radius: 300px;
+	display: inline;
+	margin: 0 .5rem;
+	padding: .25rem .5rem;
+	a {
+		color: black;
+		text-decoration: none;
+	}
+}
 
 footer {
 	background-color: $primary;

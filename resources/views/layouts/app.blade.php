@@ -35,11 +35,14 @@
 </header>
 <body>
 
-    @yield('content', 'Nothing to see here')
+    <div class="container">
+        @yield('content', 'Nothing to see here')
+    </div>
     <footer>
         <p>Sellery is niet aansprakelijk voor verkeerd gebruik van zijn services.</p>
         <p>Copyright © 2022 Sellery. Alle rechten voorbehouden.</p>
     </footer>
     <livewire:scripts />
+    <script src="{{ url('js/app.js') }}"></script>
 </body>
 </html>
