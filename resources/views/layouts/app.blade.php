@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
 </head>
+<body>
 <header>
     <div class="header header--primary">
         <div class="header__component">
@@ -33,8 +34,6 @@
     </div>
     @endif
 </header>
-<body>
-
     <div class="container">
         @yield('content', 'Nothing to see here')
     </div>

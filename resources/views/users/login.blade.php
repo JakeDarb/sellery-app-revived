@@ -1,21 +1,25 @@
-@extends('layouts/app')
+@extends('layouts/form')
 
 @section('content')
+<div class="form">
+<h2 class="form__title">Log in</h2>
     <form method="post" action="{{ url('/login') }}">
         @csrf
-        <h2>Log in</h2>
         <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <label for="email" class="form__label">Email adres</label>
+            <input type="email" name="email" class="form__input" id="email" aria-describedby="emailHelp" placeholder="Enter email">
         </div>
         <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+            <label for="password" class="form__label">Wachtwoord</label>
+            <input type="password" name="password" class="form__input" id="password" placeholder="Password">
         </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="remember">
-            <label class="form-check-label" for="remember">Remember me</label>
+        <div class="form__linkContainer">
+            <a href="/register" class="form__link">Klik hier als je nog geen account hebt</a>
         </div>
-        <button type="submit" class="btn btn-primary">Log in</button>
+        <div class="form__btnContainer">
+            <button type="submit" class="btn btn--success form__btn">Log in</button>
+            <a href="/products" class="btn form__btn">Bekijk producten</a>
+        </div>
     </form>
+    </div>
 @endsection
