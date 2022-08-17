@@ -3,3 +3,50 @@
   margin: 0;
   padding: 0;
 }
+
+.header {
+  display: flex;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+.header--primary {
+  background-color: #BAD9B5;
+}
+.header--secondary {
+  background-color: #EFF7CF;
+}
+
+.header__component {
+  flex: 1;
+}
+.header__component--last {
+  text-align: right;
+}
+
+.btn {
+  border: 2px solid black;
+  border-radius: 300px;
+  color: black;
+  font-weight: bold;
+  padding: 0.4rem 0.75rem;
+  text-decoration: none;
+}
+.btn--success {
+  background-color: #2C732C;
+  border: none;
+  color: white;
+}
+.btn--danger {
+  background-color: #732C2C;
+  border: none;
+  color: white;
+}
+
+footer {
+  background-color: #BAD9B5;
+  bottom: 0;
+  text-align: center;
+}
+footer p {
+  padding: 0.5rem 0;
+}

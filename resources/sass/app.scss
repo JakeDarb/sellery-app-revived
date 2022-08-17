@@ -3,3 +3,54 @@
 	margin: 0;
 	padding: 0;
 }
+$primary: #BAD9B5;
+$secondary: #EFF7CF;
+$danger: #732C2C;
+$success: #2C732C;
+.header {
+	display: flex;
+	padding: 1rem 2rem;
+	width: 100%;
+	&--primary {
+		background-color: $primary;
+	}
+	&--secondary {
+		background-color: $secondary;
+	}
+}
+
+.header__component {
+	flex: 1;
+	&--last {
+		text-align: right;
+	}
+}
+
+.btn {
+	border: 2px solid black;
+	border-radius: 300px;
+	color: black;
+	font-weight: bold;
+	padding: .40rem .75rem;
+	text-decoration: none;
+	&--success {
+		background-color: $success;
+		border: none;
+		color: white;
+	}
+	&--danger {
+		background-color: $danger;
+		border: none;
+		color: white;
+	}
+}
+
+
+footer {
+	background-color: $primary;
+	bottom: 0;
+	text-align: center;
+	p {
+		padding: .5rem 0;
+	}
+}
