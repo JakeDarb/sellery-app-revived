@@ -1,14 +1,21 @@
-<div>
-    <label for="search">Search</label>
-    <input wire:keyup="search" wire:model="search" type="text" name="search" id="search">
-
+<div class="search--container">
     @if($search)
-    <h2>Searching for: <em>{{ $search }}</em></h2>
+        <p class="search__label">Zoeken naar: "{{ $search }}"</p>
+    @else
+    <label for="search" class="search__label">Naar een product zoeken</label>
     @endif
+    <input wire:keyup="search" wire:model="search" type="text" name="search" id="search" class="search__input">
 
-    @foreach($products as $product)
-    <div>
-        <a href="/products/{{ $product->id }}">{{ $product->name }}</a>
+    <div class="product--container">
+        @foreach($products as $product)
+        <a href="/products/{{ $product->id }}" class="product__link">
+        <div class="product__card">
+            <div class="product__image" style="background-image: url(attachements/{{ $product->productAttachements->first()->source; }} )">
+            </div>
+            <p class="product__title">{{ $product->name }}</p>
+            <p class="product__price">&euro;{{ $product->price }}</p>
+        </div>
+        </a>
+        @endforeach
     </div>
-    @endforeach
 </div>

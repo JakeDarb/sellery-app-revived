@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
 </head>
 <body>
+
 <header>
     <div class="header header--primary">
         <div class="header__component">
@@ -34,13 +35,10 @@
     </div>
     @endif
 </header>
-    <div class="container">
+    <div class="app__container">
         @yield('content', 'Nothing to see here')
     </div>
-    <footer>
-        <p>Sellery is niet aansprakelijk voor verkeerd gebruik van zijn services.</p>
-        <p>Copyright © 2022 Sellery. Alle rechten voorbehouden.</p>
-    </footer>
+
     <livewire:scripts />
     <script src="{{ url('js/app.js') }}"></script>
 </body>

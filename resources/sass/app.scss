@@ -8,16 +8,92 @@ $secondary: #EFF7CF;
 $danger: #732C2C;
 $success: #2C732C;
 $grey: #737973;
+
+.product--container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 1rem;
+	width: 100%;
+
+	gap: 1rem;
+	@media (min-width: 605px) {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	@media (min-width: 920px) {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+}
+
+.product__card {
+	box-shadow: 0 0 5px $grey;
+	padding: .8rem;
+	width: 100%;
+
+	grid-column: span 1;
+	justify-self: center;
+}
+
+.product__image {
+	background-position: center;
+	background-size: cover;
+	overflow: hidden;
+	width: 100%;
+	&:after {
+		content: '';
+		display: block;
+		padding-bottom: 100%;
+	}
+}
+
+.product__link {
+	color: black;
+	text-decoration: none;
+}
+
+.product__title {
+	padding: .8rem 0;
+}
+
+.app__container {
+	padding-top: 6rem;
+}
+
+.app__title {
+	display: inline-block;
+	margin-top: .85rem;
+	text-align: center;
+	width: 100%;
+}
+
 .header {
 	display: flex;
+	height: fit-content;
 	padding: 1rem 2rem;
+	position: fixed;
 	width: 100%;
+	z-index: 10;
 	&--primary {
 		background-color: $primary;
 	}
 	&--secondary {
 		background-color: $secondary;
+		top: 3rem;
 	}
+}
+
+.search--container {
+	margin: auto;
+	width: 90%;
+}
+
+.search__label {
+	display: block;
+	margin-bottom: .5rem;
+}
+
+.search__input {
+	padding: .25rem .5rem;
+	width: 100%;
 }
 
 .header__component {
@@ -50,9 +126,18 @@ $grey: #737973;
 .scroll--container {
 	box-shadow: 0 0 5px $grey;
 	margin: 1rem 0;
-	overflow-x: scroll;
-	padding: 1.5rem 0;
-	white-space: nowrap;
+	position: relative;
+
+	&__title {
+		display: inline-block;
+		left: 0;
+		margin: 1rem .5rem;
+	}
+	&__list {
+		overflow-x: scroll;
+		padding: .5rem 0 1.5rem;
+		white-space: nowrap;
+	}
 }
 
 .scroll--item {
@@ -95,6 +180,7 @@ $grey: #737973;
 	&__textarea {
 		height: 5rem;
 		margin: 0 1rem;
+		padding: .25rem .5rem;
 		resize: vertical;
 		width: calc(100% - 2rem);
 	}
