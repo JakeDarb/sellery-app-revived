@@ -44,6 +44,28 @@ class ProductController extends Controller
         return view('products/create', $data);
     }
 
+    public function update($id){
+        $product = \App\Models\Product::where('id', $id)->first();
+        if(\Auth::user()->cannot('update', $product)){
+            abort(403);
+        }
+        // GET PRODUCT DATA
+        $product = \App\Models\Product::where('id', $id)->first();
+        $productCategories = \DB::table('product_categories')->get();
+        $data['productCategories'] = $productCategories;
+        $data['product'] = $product;
+        // SHOW FORM
+        return view('products/edit', $data);
+    }
+
+    public function change(Request $request){
+        \DB::table('products')
+        ->where('id', $request->product_id)
+        ->update(['name'=>$request->name, 'description'=>$request->desc, 'price'=>$request->price, 'product_categories_id'=>$request->category]);
+        
+        return redirect("/products/$request->product_id");
+    }
+
     public function store(Request $request){
         $userId = Auth::id(); 
 
