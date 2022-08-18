@@ -102,6 +102,12 @@
   text-align: right;
 }
 
+.btn--container {
+  margin: 1rem 0;
+  text-align: center;
+  width: 100%;
+}
+
 .btn {
   background-color: transparent;
   border: 2px solid black;

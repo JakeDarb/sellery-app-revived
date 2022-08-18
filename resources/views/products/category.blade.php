@@ -2,6 +2,9 @@
 
 @section('content')
     <h1 class="app__title">{{ $category->name }}</h1>
+    <div class="btn--container">
+        <a href="/products" class="btn">Producten bekijken</a>
+    </div>
     <div class="product--container">
         @foreach($products as $product)
         <a href="/products/{{ $product->id }}" class="product__link">

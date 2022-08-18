@@ -27,7 +27,7 @@
     @if(Auth::id())
     <div class="header header--secondary">
         <div class="header__component">
-            <p>{{Auth::user()->name}}</p>
+            <a href="/products/favourites" class="btn">Favorieten</a>
         </div>
         <div class="header__component header__component--last">
             <a href="/products/create" class="btn btn--success">Zoekertje plaatsen</a>

@@ -10,7 +10,7 @@
         @foreach($products as $product)
         <a href="/products/{{ $product->id }}" class="product__link">
         <div class="product__card">
-            <div class="product__image" style="background-image: url(attachements/{{ $product->productAttachements->first()->source; }} )">
+            <div class="product__image" style="background-image: url(../attachements/{{ $product->productAttachements->first()->source; }} )">
             </div>
             <p class="product__title">{{ $product->name }}</p>
             <p class="product__price">&euro;{{ $product->price }}</p>
