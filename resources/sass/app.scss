@@ -3,11 +3,22 @@
 	margin: 0;
 	padding: 0;
 }
+
+body {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+
 $primary: #BAD9B5;
 $secondary: #EFF7CF;
 $danger: #732C2C;
 $success: #2C732C;
 $grey: #737973;
+
+#logo {
+	color: $success;
+	font-family: 'Alfa Slab One', cursive;
+}
 
 .product--container {
 	display: grid;
