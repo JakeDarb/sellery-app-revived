@@ -2,7 +2,10 @@
 
 @section('content')
     @if($flash = session('message'))
-        <p>{{ $flash }}</p>
+        @component('components/alert')
+            @slot('type') success @endslot
+            <p>{{ $flash }}</p>
+        @endcomponent
     @endif
     <h1 class="app__title">{{$product -> name}}</h1>
     @if(Auth::id())

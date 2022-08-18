@@ -2,11 +2,12 @@
 
 @section('content')
 @if($errors->any())
-    <ul>
-    @foreach($errors->all() as $error)
-        <li>{{ $error }}</li>
-    @endforeach
-    </ul>
+    @component('components/alert')
+        @slot('type') danger @endslot
+        @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    @endcomponent
 @endif
 <div class="form">
 <h2 class="form__title">Product bewerken</h2>

@@ -19,6 +19,12 @@ class UserController extends Controller
     }
 
     public function store(Request $request){
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required'
+        ]);
+
         $user = new \App\Models\User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -48,7 +54,7 @@ class UserController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-        $request->session()->flash('message', "You're logged out");
+        $request->session()->flash('message', "Je bent uitgelogd");
         return redirect('/products');
     }
 
@@ -59,10 +65,11 @@ class UserController extends Controller
         ]);
 
         if(Auth::attempt($credential)){
-            $request->session()->flash('message', "You're logged in");
+            $request->session()->flash('message', "Je bent ingelogd");
             return redirect('/products');
         }else{
-            echo "logged in failed";
+            $request->session()->flash('message', 'Je email of wachtwoord is incorrect');
+            return redirect("/login");
         }
     }
 }

@@ -1,6 +1,14 @@
 @extends('layouts/form')
 
 @section('content')
+@if($errors->any())
+    @component('components/alert')
+        @slot('type') danger @endslot
+        @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    @endcomponent
+@endif
 <div class="form">
     <form method="post" action="{{ url('/register') }}" enctype="multipart/form-data">
         @csrf

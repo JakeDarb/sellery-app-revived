@@ -1,8 +1,12 @@
 @extends('layouts/app')
 
 @section('content')
-@if($flash = session('message'))
-        <p>{{ $flash }}</p>
+
+    @if($flash = session('message'))
+        @component('components/alert')
+            @slot('type') success @endslot
+            <p>{{ $flash }}</p>
+        @endcomponent
     @endif
 <h1 class="app__title">Bekijk producten</h1>
 <div class="scroll--container">

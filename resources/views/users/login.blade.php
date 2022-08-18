@@ -1,6 +1,12 @@
 @extends('layouts/form')
 
 @section('content')
+@if($flash = session('message'))
+    @component('components/alert')
+        @slot('type') danger @endslot
+        <p>{{ $flash }}</p>
+    @endcomponent
+@endif
 <div class="form">
 <h2 class="form__title">Log in</h2>
     <form method="post" action="{{ url('/login') }}">

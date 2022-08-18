@@ -54,6 +54,7 @@ class ProductController extends Controller
         $productCategories = \DB::table('product_categories')->get();
         $data['productCategories'] = $productCategories;
         $data['product'] = $product;
+
         // SHOW FORM
         return view('products/edit', $data);
     }
@@ -62,7 +63,7 @@ class ProductController extends Controller
         \DB::table('products')
         ->where('id', $request->product_id)
         ->update(['name'=>$request->name, 'description'=>$request->desc, 'price'=>$request->price, 'product_categories_id'=>$request->category]);
-        
+        $request->session()->flash('message', 'Je product is aangepast');
         return redirect("/products/$request->product_id");
     }
 
@@ -110,7 +111,7 @@ class ProductController extends Controller
         }
         
 
-        $request->session()->flash('message', 'Your product is now for sale');
+        $request->session()->flash('message', 'Je product staat te koop');
         $id = $product->id;
 
         return redirect("/products/$id");

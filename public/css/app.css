@@ -279,6 +279,22 @@
   width: 100%;
 }
 
+.alert {
+  display: inline-block;
+  margin: 1rem 5% 0;
+  padding: 1rem;
+  text-align: center;
+  width: 90%;
+}
+.alert--success {
+  background-color: #2C732C;
+  color: white;
+}
+.alert--danger {
+  background-color: #732C2C;
+  color: white;
+}
+
 footer {
   background-color: #BAD9B5;
   bottom: 0;
