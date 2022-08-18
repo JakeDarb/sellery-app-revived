@@ -14,6 +14,7 @@
                 <input type="hidden" name="_method" value="DELETE">
                 <div class="detail__delete">
                     <input type="submit" value="product verwijderen" class="btn btn--danger">
+                    <a href="product/edit/{{ $product->id }}" class="btn btn--success">update</a>
                 </div>
             </form>
         @endif
