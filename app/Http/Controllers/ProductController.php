@@ -65,16 +65,17 @@ class ProductController extends Controller
         $product->save();
 
         if(!empty($request->file('files'))){
+            $i=0;
             foreach($request->file('files') as $file){
                 $t=time();
-                $imageSrc = date("Y-m-d").$t.'.'.$file->extension();
+                $imageSrc = $i.date("Y-m-d").$t.'.'.$file->extension();
                 $file->move(public_path('attachements'), $imageSrc);
                 //attachment opslaan in database
                 $newAttach = new ProductAttachements();
                 $newAttach->source = $imageSrc;
                 $newAttach->product_id = $product->id;
                 $newAttach->save();
-                sleep(1);
+                $i++;
             }
         }else{
             $imageSrc = "default.jpg";
