@@ -9,6 +9,6 @@ class ProductAttachements extends Model
 {
     use HasFactory;
     public function products(){
-        return $this->hasMany(\App\Models\Product::class);
+        return $this->belongsTo(\App\Models\Product::class, 'product_id');
     }
 }
