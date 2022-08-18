@@ -69,16 +69,23 @@ class ProductController extends Controller
                 $t=time();
                 $imageSrc = date("Y-m-d").$t.'.'.$file->extension();
                 $file->move(public_path('attachements'), $imageSrc);
+                //attachment opslaan in database
+                $newAttach = new ProductAttachements();
+                $newAttach->source = $imageSrc;
+                $newAttach->product_id = $product->id;
+                $newAttach->save();
+                sleep(1);
             }
         }else{
             $imageSrc = "default.jpg";
+            //attachment opslaan in database
+            $newAttach = new ProductAttachements();
+            $newAttach->source = $imageSrc;
+            $newAttach->product_id = $product->id;
+            $newAttach->save();
+            sleep(1);
         }
-        //attachment opslaan in database
-        $newAttach = new ProductAttachements();
-        $newAttach->source = $imageSrc;
-        $newAttach->product_id = $product->id;
-        $newAttach->save();
-        sleep(1);
+        
 
         $request->session()->flash('message', 'Your product is now for sale');
         $id = $product->id;
